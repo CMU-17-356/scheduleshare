@@ -9,5 +9,5 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.listen(port, () => {
-  console.log(`Server listening on localhost:${port}/`);
+    console.log(`Server listening on localhost:${port}/`);
 });
