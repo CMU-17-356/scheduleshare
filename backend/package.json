@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "mocha --recursive --exit"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.3.6",
     "cors": "^2.8.5",
     "express": "^4.17.3",
     "mongoose": "^6.3.0"
