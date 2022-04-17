@@ -1,0 +1,15 @@
+env:
+  browser: true
+  commonjs: true
+  es2021: true
+extends:
+  - google
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+  ecmaVersion: latest
+plugins: []
+rules: 
+  indent: 
+    - error
+    - 4
