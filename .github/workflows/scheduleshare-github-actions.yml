@@ -1,7 +1,7 @@
 name: ScheduleShare CI
 on: [push]
 jobs:
-  Dronut-Test-and-Lint:
+  ScheduleShare-Test-and-Lint:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
