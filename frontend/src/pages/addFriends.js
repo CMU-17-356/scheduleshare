@@ -3,9 +3,9 @@ import Header from "../components/Header";
 import SearchBar from "material-ui-search-bar";
 import {MuiThemeProvider} from "@material-ui/core/styles";
 
-function App() {
+function addFriendsPage() {
   return (
-    <div className="App">
+    <div>
       <Header />
       <MuiThemeProvider>
         <div>
@@ -22,4 +22,4 @@ function App() {
   );
 }
 
-export default App;
+export default addFriendsPage;
