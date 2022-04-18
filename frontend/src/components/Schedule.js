@@ -1,13 +1,12 @@
-import PreviewCard from "./PreviewCard"
+import ScrollableList from "./ScrollableList"
 
-function Schedule(scheduleList) {
+function schedule(scheduleList) {
+
   return (
     <div>{
-        scheduleList.map(course => {
-            <PreviewCard content = {course} isCourse = {True}/>
-        })
+        <ScrollableList contents = {scheduleList} isClass = {true}/>
     }</div>
   )
 }
 
-export default Schedule
+export default schedule

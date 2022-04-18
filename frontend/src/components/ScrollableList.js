@@ -1,38 +1,17 @@
-import {useRef, useCallback} from 'react'
 import PreviewCard from "./PreviewCard"
-const ScrollableList = (loading, error, contents, hasMore, isClass, setPageNumber) => {
-  
-    const observer = useRef()
-    const lastContentRef = useCallback((content) => {
-        if (loading) return
+import ReactScrollableList from 'react-scrollable-list'
+const ScrollableList = (contents, isClass) => {
 
-        if (observer.current) observer.disconnect()
+  const listContents = contents.map(content => ({ id: content.id, content: <PreviewCard key={content.id} content={content} isClass={isClass} /> }))
+  return (
 
-        observer.current = new IntersectionObserver(entries => {
-            if (entries[0].isIntersecting && hasMore){
-                setPageNumber(prevPageNumber => {prevPageNumber + 1 })
-            }
-        })
-
-        if (content) observer.current.observe(content)
-    }, [loading, hasMore])
-    
-    return (
-      <div>
-          {!error &&
-                    contents.map((content, index) => {
-                        if (content.length === index + 1){
-                            return <PreviewCard ref = {lastClassRef} key = {course.id} content = {content} isClass = {isClass}/>
-                        }
-                        <PreviewCard key = {course.id} content = {content} isClass = {isClass}/>
-        
-                    })
-          }
-          {hasMore && hasMore}
-          {loading && loading}
-          {error && error}
-      </div>
+    <div>
+      <ReactScrollableList
+        listItems={listContents}
+        heightOfItem={30}
+      />
+    </div>
   )
- }
+}
 
 export default ScrollableList
