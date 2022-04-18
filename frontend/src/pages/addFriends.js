@@ -1,5 +1,5 @@
 import {setState, useState} from 'react';
-import useUsers from 'hooks/useUsers'
+import useUsers from '../hooks/useUsers'
 import ScrollableList from '../components/ScrollableList';
 import UserInfo from '../components/UserInfo';
 function App() {
