@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import SearchBar from "material-ui-search-bar";
 import {MuiThemeProvider} from "@material-ui/core/styles";
 
-function addClassesPage() {
+function AddClasses() {
   return (
     <div>
       <Header />
@@ -22,4 +22,4 @@ function addClassesPage() {
   );
 }
 
-export default addClassesPage;
+export default AddClasses;
