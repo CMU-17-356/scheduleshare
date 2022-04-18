@@ -1,15 +1,9 @@
-import {setState, useState, useRef, useCallback} from 'react';
-import useClasses from "../hooks/useClasses";
-import ScrollableList from '../components/ScrollableList';
-import Schedule from '../components/Schedule';
-function App() {
-  const [pageNumber, setPageNumber] = setState(1)
-  const {loading, error, classes, hasMore} = useClasses(pageNumber)
+// import React from 'react';
 
+function App() {
   return (
     <div className="App">
-        <ScrollableList loading = {loading} error = {error} contents = {classes} hasMore = {hasMore} isClass ={True} setPageNumber = {setPageNumber}/>
-        <Schedule scheduleList = "smth"/>
+      Add Classes Page!
     </div>
   );
 }
