@@ -9,6 +9,7 @@ import UserInfo from "../components/UserInfo"
 function AddFriendsPage() {
   //const users = useUsers()
   const users = []
+  console.log(typeof users)
   return (
     <div>
       <Header />

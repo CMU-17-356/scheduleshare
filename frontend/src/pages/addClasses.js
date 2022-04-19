@@ -23,7 +23,7 @@ function AddClasses() {
         </div>
       </MuiThemeProvider>
       Add Classes Page!
-      <ScrollableList contents = {classes} isClass ={true}/>
+      <ScrollableList myContents = {classes} isClass ={true}/>
       <Schedule scheduleList = "smth"/>
     </div>
   );
