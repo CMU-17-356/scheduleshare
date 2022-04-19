@@ -7,7 +7,8 @@ import ScrollableList from "../components/ScrollableList"
 import UserInfo from "../components/UserInfo"
 
 function AddFriendsPage() {
-  const {users} = useUsers()
+  //const users = useUsers()
+  const users = []
   return (
     <div>
       <Header />
@@ -22,7 +23,7 @@ function AddFriendsPage() {
         </div>
       </MuiThemeProvider>
       Add Friends Page!
-      <ScrollableList contents = {users} isClass ={false}/>
+      <ScrollableList myContents = {users} isClass ={false}/>
       <UserInfo/>
     </div>
   );

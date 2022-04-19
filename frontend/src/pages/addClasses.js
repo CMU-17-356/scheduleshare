@@ -7,7 +7,8 @@ import ScrollableList from "../components/ScrollableList"
 import Schedule from "../components/Schedule"
 
 function AddClasses() {
-  const {classes} = useClasses()
+  //const {classes} = useClasses()
+  const classes = []
   return (
     <div>
       <Header />

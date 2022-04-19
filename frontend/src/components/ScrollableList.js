@@ -1,9 +1,9 @@
 import PreviewCard from "./PreviewCard"
 import ReactScrollableList from 'react-scrollable-list'
 
-const ScrollableList = (contents, isClass) => {
+const ScrollableList = (myContents, isClass) => {
 
-  const listContents = contents.map(content => ({ id: content.id, content: <PreviewCard key={content.id} content={content} isClass={isClass} /> }))
+  const listContents = myContents.map(myContent => ({ id: myContent.id, content: <PreviewCard key={myContent.id} content={myContent} isClass={isClass} /> }))
   return (
 
     <div>
