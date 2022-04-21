@@ -5,8 +5,17 @@ import {MuiThemeProvider} from "@material-ui/core/styles";
 import useClasses from "../hooks/useClasses";
 import ScrollableList from "../components/ScrollableList"
 import Schedule from "../components/Schedule"
+import DetailedCard from "../components/DetailedCard"
 
 function AddClasses() {
+  //id should be this user's id
+  let expandedID, setExpandedID = useState(-1)
+  let expanded, setExpanded = useState(false)
+
+  const show = (id) => {
+    setExpanded(true)
+    setExpandedID(id)
+  }
   //const {classes} = useClasses()
   const classes = []
   return (
@@ -23,8 +32,9 @@ function AddClasses() {
         </div>
       </MuiThemeProvider>
       Add Classes Page!
-      <ScrollableList myContents = {classes} isClass ={true}/>
-      <Schedule scheduleList = "smth"/>
+      <ScrollableList myContents = {classes} isClass ={true} show = {show}/>
+      {!expanded && <Schedule scheduleList = {"smth"}/>}
+      {expanded && <DetailedCard id = {expandedID}/>}
     </div>
   );
 }

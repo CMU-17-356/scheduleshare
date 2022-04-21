@@ -1,9 +1,9 @@
 import React from 'react'
 
-const detailedCard = () => {
+const DetailedCard = ({id}) => {
   return (
     <div>detailedCard</div>
   )
 }
 
-export default detailedCard
+export default DetailedCard
