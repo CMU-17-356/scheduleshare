@@ -1,6 +1,6 @@
 import React from 'react'
 
-function UserInfo() {
+function UserInfo({user}) {
   return (
     <div>UserInfo</div>
   )
