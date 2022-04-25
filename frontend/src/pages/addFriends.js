@@ -1,25 +1,25 @@
 // import React from 'react';
 import Header from "../components/Header";
-// import SearchBar from "material-ui-search-bar";
-// import {MuiThemeProvider} from "@material-ui/core/styles";
-import './App.css';
+import SearchBar from "material-ui-search-bar";
+import {MuiThemeProvider} from "@material-ui/core/styles";
 
-function AddFriendsPage() {
+function addFriendsPage() {
   return (
-    <div className='addFriendsPage'>
+    <div>
       <Header />
-      <p>Add Friends Page!</p>
-      {/* <div className="search">
-        <TextField
-          id="outlined-basic"
-          variant="outlined"
-          fullWidth
-          label="Search for Friends"
-        />
-      </div>
-      <List /> */}
+      <MuiThemeProvider>
+        <div>
+          <SearchBar
+            style={{
+              margin: "0 auto",
+              maxWidth: 800
+            }}
+          />
+        </div>
+      </MuiThemeProvider>
+      Add Friends Page!
     </div>
   );
 }
 
-export default AddFriendsPage;
+export default addFriendsPage;
