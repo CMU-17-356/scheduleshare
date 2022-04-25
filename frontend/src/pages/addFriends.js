@@ -7,7 +7,7 @@ import ScrollableList from "../components/ScrollableList"
 import UserInfo from "../components/UserInfo"
 import { useState } from "react";
 
-function AddFriendsPage() {
+function AddFriends() {
   //id should be this user's id
   let expandedID, setExpandedID = useState(-1)
   //const users = useUsers()
