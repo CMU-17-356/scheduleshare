@@ -18,6 +18,8 @@ function AddClasses() {
   }
   //const {classes} = useClasses()
   const classes = []
+
+function addClassesPage() {
   return (
     <div>
       <Header />
@@ -39,4 +41,5 @@ function AddClasses() {
   );
 }
 
-export default AddClasses;
+export default AddClassesPage;
+
