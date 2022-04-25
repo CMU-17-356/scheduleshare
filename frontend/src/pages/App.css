@@ -36,3 +36,33 @@
     transform: rotate(360deg);
   }
 }
+
+.addFriendsPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+  /* height: 100vh;
+  width: 100%;
+  row-gap: 20px; */
+}
+
+.addClassesPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+  /* height: 100vh;
+  width: 100%;
+  row-gap: 20px; */
+}
+
+.search {
+  width: 30%;
+}
+
+ul li {
+  font-size: 20px;
+} 
