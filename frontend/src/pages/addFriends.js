@@ -19,7 +19,7 @@ function AddFriendsPage() {
   }
 
 
-function addFriendsPage() {
+function AddFriendsPage() {
   return (
     <div>
       <Header />
@@ -40,4 +40,4 @@ function addFriendsPage() {
   );
 }
 
-export default addFriendsPage;
+export default AddFriendsPage;

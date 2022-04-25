@@ -7,7 +7,7 @@ import ScrollableList from "../components/ScrollableList"
 import Schedule from "../components/Schedule"
 import DetailedCard from "../components/DetailedCard"
 
-function AddClassesPage() {
+function AddClasses() {
   //id should be this user's id
   let expandedID, setExpandedID = useState(-1)
   let expanded, setExpanded = useState(false)
@@ -19,7 +19,7 @@ function AddClassesPage() {
   //const {classes} = useClasses()
   const classes = []
 
-function addClassesPage() {
+function AddClassesPage() {
   return (
     <div>
       <Header />
