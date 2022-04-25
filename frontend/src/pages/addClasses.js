@@ -1,25 +1,25 @@
 // import React from 'react';
 import Header from "../components/Header";
-import SearchBar from "material-ui-search-bar";
-import {MuiThemeProvider} from "@material-ui/core/styles";
+// import TextField from "@mui/material/TextField";
+// import List from "./Components/List"
+import "./App.css"
 
-function addClassesPage() {
+function AddClassesPage() {
   return (
-    <div>
+    <div className='addClassesPage'>
       <Header />
-      <MuiThemeProvider>
-        <div>
-          <SearchBar
-            style={{
-              margin: "0 auto",
-              maxWidth: 800
-            }}
-          />
-        </div>
-      </MuiThemeProvider>
-      Add Classes Page!
+      <p>Add Classes Page!</p>
+      {/* <div className="search">
+        <TextField
+          id="outlined-basic"
+          variant="outlined"
+          fullWidth
+          label="Search for Classes"
+        />
+      </div>
+      <List /> */}
     </div>
   );
 }
 
-export default addClassesPage;
+export default AddClassesPage;
