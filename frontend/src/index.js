@@ -7,8 +7,8 @@ import {
 } from "react-router-dom";
 import './index.css';
 import App from './pages/App';
-import AddFriendsPage from './pages/addFriends';
-import AddClassesPage from './pages/addClasses';
+import addFriendsPage from './pages/addFriends';
+import addClassesPage from './pages/addClasses';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -16,8 +16,8 @@ ReactDOM.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="addFriends" element={<AddFriendsPage />} />
-      <Route path="addClasses" element={<AddClassesPage />} />
+      <Route path="addFriends" element={<addFriendsPage />} />
+      <Route path="addClasses" element={<addClassesPage />} />
     </Routes>
   </BrowserRouter>,
   document.getElementById('root')

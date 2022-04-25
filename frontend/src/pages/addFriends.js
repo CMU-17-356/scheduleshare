@@ -18,6 +18,8 @@ function AddFriendsPage() {
     setExpandedID(id)
   }
 
+
+function addFriendsPage() {
   return (
     <div>
       <Header />
@@ -38,4 +40,4 @@ function AddFriendsPage() {
   );
 }
 
-export default AddFriendsPage;
+export default addFriendsPage;

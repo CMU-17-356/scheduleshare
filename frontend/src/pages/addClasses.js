@@ -18,6 +18,8 @@ function AddClassesPage() {
   }
   //const {classes} = useClasses()
   const classes = []
+
+function addClassesPage() {
   return (
     <div>
       <Header />
