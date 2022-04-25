@@ -57,5 +57,5 @@ module.exports = {
     view_user_by_id,
     add_user,
     update_user_by_id,
-    delete_user_by_id,
+    delete_user_by_id
 };

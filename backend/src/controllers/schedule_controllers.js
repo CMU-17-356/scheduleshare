@@ -57,5 +57,5 @@ module.exports = {
     view_schedule_by_id,
     add_schedule,
     update_schedule_by_id,
-    delete_schedule_by_id,
+    delete_schedule_by_id
 };

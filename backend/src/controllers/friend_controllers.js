@@ -57,5 +57,5 @@ module.exports = {
     view_friend_by_id,
     add_friend,
     update_friend_by_id,
-    delete_friend_by_id,
+    delete_friend_by_id
 };
