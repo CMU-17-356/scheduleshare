@@ -7,9 +7,8 @@ import {
 } from "react-router-dom";
 import './index.css';
 import App from './pages/App';
-import AddFriendsPage from './pages/AddFriends';
-import AddClassesPage from './pages/AddClasses';
-
+import AddFriendsPage from './pages/addFriends';
+import AddClassesPage from './pages/addClasses';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(

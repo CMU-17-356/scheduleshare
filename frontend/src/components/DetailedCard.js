@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 
 const DetailedCard = ({id}) => {
 
@@ -10,7 +11,7 @@ const DetailedCard = ({id}) => {
       url: "something",
       body: {id: id}
     }).then(res => {
-      setClasses(res.data)
+      setCourse(res.data)
     }).catch(e => {
     })
   }, [])
