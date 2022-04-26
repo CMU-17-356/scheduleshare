@@ -1,10 +1,12 @@
 import ScrollableList from "./ScrollableList"
 
-function Schedule(scheduleList) {
+function Schedule({scheduleList}) {
 
+  const show = (id) =>  {}
   return (
     <div>{
-        <ScrollableList contents = {scheduleList} isClass = {true}/>
+      
+        <ScrollableList myContents = {scheduleList} isClass = {true} show = {show}/>
     }</div>
   )
 }
