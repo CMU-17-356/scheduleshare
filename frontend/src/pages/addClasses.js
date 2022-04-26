@@ -25,6 +25,7 @@ function AddClassesPage() {
   return (
     <div className='addClassesPage'>
       <Header />
+      <p>Add Classes Page!</p>
       <MuiThemeProvider>
         <div>
           <SearchBar
@@ -35,7 +36,6 @@ function AddClassesPage() {
           />
         </div>
       </MuiThemeProvider>
-      Add Classes Page!
       <ScrollableList myContents = {courses} isClass ={true} show = {show}/>
       {!expanded && <Schedule scheduleList = {[]}/>}
       {expanded && <DetailedCard id = {expandedID}/>}
