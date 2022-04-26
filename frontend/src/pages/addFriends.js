@@ -19,8 +19,9 @@ function AddFriendsPage() {
   }
 
   return (
-    <div>
+    <div className='addFriendsPage'>
       <Header />
+      <p>Add Friends Page!</p>
       <MuiThemeProvider>
         <div>
           <SearchBar
@@ -38,4 +39,4 @@ function AddFriendsPage() {
   );
 }
 
-export default AddFriendsPage;
+export default AddFriendsPage

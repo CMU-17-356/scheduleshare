@@ -7,7 +7,7 @@ import ScrollableList from "../components/ScrollableList"
 import Schedule from "../components/Schedule"
 import DetailedCard from "../components/DetailedCard"
 
-function AddClasses() {
+function AddClassesPage() {
   //id should be this user's id
   let expandedID, setExpandedID = useState(-1)
   let expanded, setExpanded = useState(false)
@@ -19,7 +19,7 @@ function AddClasses() {
   //const {classes} = useClasses()
   const classes = []
   return (
-    <div>
+    <div className='addClassesPage'>
       <Header />
       <MuiThemeProvider>
         <div>
@@ -39,4 +39,4 @@ function AddClasses() {
   );
 }
 
-export default AddClasses;
+export default AddClassesPage
