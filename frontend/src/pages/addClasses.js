@@ -6,7 +6,6 @@ import useClasses from "../hooks/useClasses";
 import ScrollableList from "../components/ScrollableList"
 import Schedule from "../components/Schedule"
 import DetailedCard from "../components/DetailedCard"
-import { useState } from "react";
 
 function AddClasses() {
   //id should be this user's id

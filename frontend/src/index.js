@@ -9,6 +9,7 @@ import './index.css';
 import App from './pages/App';
 import AddFriendsPage from './pages/addFriends';
 import AddClassesPage from './pages/addClasses';
+
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
