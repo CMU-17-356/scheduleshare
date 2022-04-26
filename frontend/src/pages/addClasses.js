@@ -10,15 +10,18 @@ import {useState} from "react"
 
 function AddClassesPage() {
   //id should be this user's id
-  let expandedID, setExpandedID = useState(-1)
-  let expanded, setExpanded = useState(false)
+  let [expandedID, setExpandedID] = useState(-1)
+  let [expanded, setExpanded] = useState(false)
+
+  const courses = ['a']
+  console.log(typeof courses)
 
   const show = (id) => {
     setExpanded(true)
     setExpandedID(id)
   }
   //const {classes} = useClasses()
-  const classes = []
+
   return (
     <div className='addClassesPage'>
       <Header />
@@ -33,8 +36,8 @@ function AddClassesPage() {
         </div>
       </MuiThemeProvider>
       Add Classes Page!
-      <ScrollableList myContents = {classes} isClass ={true} show = {show}/>
-      {!expanded && <Schedule scheduleList = {"smth"}/>}
+      <ScrollableList myContents = {courses} isClass ={true} show = {show}/>
+      {!expanded && <Schedule scheduleList = {[]}/>}
       {expanded && <DetailedCard id = {expandedID}/>}
     </div>
   );

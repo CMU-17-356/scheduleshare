@@ -9,7 +9,7 @@ import { useState } from "react";
 
 function AddFriendsPage() {
   //id should be this user's id
-  let expandedID, setExpandedID = useState(-1)
+  let [expandedID, setExpandedID] = useState(-1)
   //const users = useUsers()
   const users = []
   console.log(typeof users)
