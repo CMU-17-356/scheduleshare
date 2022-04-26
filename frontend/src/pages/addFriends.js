@@ -22,17 +22,6 @@ function AddFriendsPage() {
     <div className='addFriendsPage'>
       <Header />
       <p>Add Friends Page!</p>
-      <MuiThemeProvider>
-        <div>
-          <SearchBar
-            style={{
-              margin: "0 auto",
-              maxWidth: 800
-            }}
-          />
-        </div>
-      </MuiThemeProvider>
-      Add Friends Page!
       <ScrollableList myContents = {users} isClass ={false} show = {show}/>
       <UserInfo id = {expandedID}/>
     </div>
