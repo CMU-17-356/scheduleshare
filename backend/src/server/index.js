@@ -50,6 +50,9 @@ app.get('/schedule/', scheduleControllers.view_all_schedules,
 app.get('/schedule/:_id', scheduleControllers.view_schedule_by_id,
 );
 
+app.get('/schedule/course/:_id/users', scheduleControllers.get_users_by_course_id,
+);
+
 app.post('/schedule/', scheduleControllers.add_schedule,
 );
 

@@ -1,5 +1,9 @@
 const fs =require('fs');
 const path = require('path');
+const Friend = require('../schema/friend_schema');
+const Schedule = require('../schema/schedule_schema');
+const User = require('../schema/user_schema');
+
 const data=fs.readFileSync(path.join(__dirname, "../../out.json"), 'utf8');
 const words=JSON.parse(data);
 const courses = words['courses'];
