@@ -1,5 +1,5 @@
 const express = require('express');
-const fs =require('fs');
+const fs = require('fs');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -13,10 +13,10 @@ const port = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-const data=fs.readFileSync('../../out.json', 'utf8');
+const data=fs.readFileSync('./out.json', 'utf8');
 const words=JSON.parse(data);
 const courses = words['courses'];
-console.log(courses['15-122']);
+// console.log(courses['15-122']);
 
 
 app.listen(port, () => {
