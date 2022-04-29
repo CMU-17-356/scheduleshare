@@ -1,9 +1,6 @@
 import { React, useState } from "react";
 import TextField from "@mui/material/TextField";
 import Header from "../components/Header";
-import SearchBar from "material-ui-search-bar";
-import {MuiThemeProvider} from "@material-ui/core/styles";
-import useUsers from "../hooks/useUsers";
 import ScrollableList from "../components/ScrollableList"
 import UserInfo from "../components/UserInfo"
 import Grid from '@mui/material/Grid';
