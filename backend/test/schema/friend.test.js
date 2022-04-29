@@ -3,7 +3,7 @@ const User = require('../../src/schema/user_schema');
 const expect = require('chai').expect;
 const assert = require('chai').assert;
 
-describe('Friends should not exit without exactly 2 users', function() {
+describe('Friends should not exist without exactly 2 users', function() {
     let user1 = {};
     
     before(function(done) {
