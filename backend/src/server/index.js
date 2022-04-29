@@ -1,11 +1,13 @@
 const express = require('express');
-const fs = require('fs');
+const fs =require('fs');
+const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const userControllers = require('../controllers/user_controllers');
 const scheduleControllers = require('../controllers/schedule_controllers');
 const friendControllers = require('../controllers/friend_controllers');
+const courseControllers = require('../controllers/course_controllers');
 
 const app = express();
 const port = 3000;
@@ -13,11 +15,10 @@ const port = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-const data=fs.readFileSync('./out.json', 'utf8');
+const data=fs.readFileSync(path.join(__dirname, "../../out.json"), 'utf8');
 const words=JSON.parse(data);
 const courses = words['courses'];
-// console.log(courses['15-122']);
-
+// console.log(courses['11-111'] == undefined);
 
 app.listen(port, () => {
     console.log(`Server listening on localhost:${port}/`);
@@ -47,6 +48,9 @@ app.get('/schedule/', scheduleControllers.view_all_schedules,
 app.get('/schedule/:_id', scheduleControllers.view_schedule_by_id,
 );
 
+app.get('/schedule/course/:_id/users', scheduleControllers.get_users_by_course_id,
+);
+
 app.post('/schedule/', scheduleControllers.add_schedule,
 );
 
@@ -71,6 +75,11 @@ app.put('/friend/:_id', friendControllers.update_friend_by_id,
 
 app.delete('/friend/:_id', friendControllers.delete_friend_by_id,
 );
+
+app.get('/course/:_id', courseControllers.view_course_by_id,
+);
+
+
 
 
 main().catch((err) => console.log(err));
