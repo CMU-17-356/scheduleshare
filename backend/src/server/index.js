@@ -9,7 +9,6 @@ const scheduleControllers = require('../controllers/schedule_controllers');
 const friendControllers = require('../controllers/friend_controllers');
 const courseControllers = require('../controllers/course_controllers');
 
-
 const app = express();
 const port = 3000;
 
@@ -19,8 +18,7 @@ app.use(bodyParser.json());
 const data=fs.readFileSync(path.join(__dirname, "../../out.json"), 'utf8');
 const words=JSON.parse(data);
 const courses = words['courses'];
-console.log(courses['11-111'] == undefined);
-
+// console.log(courses['11-111'] == undefined);
 
 app.listen(port, () => {
     console.log(`Server listening on localhost:${port}/`);
