@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -11,6 +11,8 @@ import UserInfo from './UserInfo';
 
 
 const PreviewCard = ({ content, isCourse, show }) => {
+
+  const [thisCourse, setThisCourse] = useState(content)
 
   const addClass = () => {
     axios({
@@ -36,27 +38,27 @@ const PreviewCard = ({ content, isCourse, show }) => {
     })
   }
 
-
+  
   if (isCourse) {
     return (
       <Card sx={{ minWidth: 275 }}>
         <CardActionArea onClick={() => show(content.id)}>
           <CardContent>
             <Typography variant="h5" component="div">
-              {content.name}
+              {thisCourse.name}
             </Typography>
             <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              {content.number}
+              {thisCourse.id}
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardContent>
           <Typography variant="body2">
-            {content.description}
+            {thisCourse.desc}
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" onClick={() => addClass()}>Add to schedule</Button>
+          <Button size="small" onClick={() => addClass(content.id)}>Add to schedule</Button>
         </CardActions>
       </Card>
     )

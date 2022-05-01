@@ -11,8 +11,21 @@ function AddClassesPage() {
   let [expandedID, setExpandedID] = useState(-1)
   let [expanded, setExpanded] = useState(false)
 
-  const courses = ['a']
-  console.log(typeof courses)
+  const courses = [{"id": "15-122",  "name": "Principles of Imperative Computation",
+  "department": "Computer Science",
+  "units": 10.0,
+  "desc": "For students with a basic understanding of programming..."
+},
+{"id": "17-356",  "name": "Software Engineering for Startups",
+  "department": "Software Engineering",
+  "units": 12.0,
+  "desc": "For students who want to ship software well"
+},
+{"id": "17-214",  "name": "Principles of Software Construction",
+  "department": "Software Engineering",
+  "units": 12.0,
+  "desc": "For students who want to write extensible code"
+}]
 
   const show = (id) => {
     setExpanded(true)
@@ -36,7 +49,7 @@ function AddClassesPage() {
             />
           </div>
           <div className="list">
-            <ScrollableList myContents = {courses} isClass ={true} show = {show}/>
+            <ScrollableList myContents = {courses} isCourse ={true} show = {show}/>
           </div>
         </Grid>
         <Grid item xs={6}>
