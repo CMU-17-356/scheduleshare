@@ -79,11 +79,4 @@ app.delete('/friend/:_id', friendControllers.delete_friend_by_id,
 app.get('/course/:_id', courseControllers.view_course_by_id,
 );
 
-
-
-
-main().catch((err) => console.log(err));
-
-async function main() {
-    await mongoose.connect('mongodb://localhost:27017/test');
-}
+exports.app = app;
