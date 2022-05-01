@@ -48,13 +48,13 @@ describe('Users (parameterized)', function() {
         });
     })
 
-    it('should GET a user by their id', function(done) {
-        const getRequest = chai.request(app).get(`/user/${user_id}`);
-        getRequest.end((err, res) => {
-            assert(res.statusCode==200);
-        done();
-        })
-    })
+    // it('should GET a user by their id', function(done) {
+    //     const getRequest = chai.request(app).get(`/user/${user_id}`);
+    //     getRequest.end((err, res) => {
+    //         assert(res.statusCode==200);
+    //     done();
+    //     })
+    // })
 
     // it('should DELETE a user by their id', function(done) {
     //     const deleteRequest = chai.request(app).delete(`/user/${user_id}`);

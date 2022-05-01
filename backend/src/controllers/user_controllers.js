@@ -20,7 +20,8 @@ const view_user_by_id = (req, res) => {
     const client = startDatabase();
     client.connect(function(err, client){
         const collection = client.db("ScheduleShare").collection('User');
-        collection.find({_id: req.params._id}).toArray(function(err, result) {
+        const _id = mongoose.Types.ObjectId(req.params._id);
+        collection.find({_id: _id}).toArray(function(err, result) {
             if (err) {
                 res.status(400).send(err);
             } else {
@@ -52,8 +53,6 @@ const update_user_by_id = (req, res) => {
     const client = startDatabase();
     client.connect(async function(err, client) {
         const collection = client.db("ScheduleShare").collection('User');
-        console.log(req.params);
-        console.log(req.body);
         const _id = mongoose.Types.ObjectId(req.params._id);
         collection.updateOne({_id: _id}, {$set: req.body}, function (err, result) {
             if (err) {
