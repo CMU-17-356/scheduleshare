@@ -12,7 +12,7 @@ import UserInfo from './UserInfo';
 
 const PreviewCard = ({ content, isCourse, show }) => {
 
-
+  console.log(content)
   const addClass = (courseName) => {
 
     axios({
@@ -78,13 +78,13 @@ const PreviewCard = ({ content, isCourse, show }) => {
               {content.full_name}
             </Typography>
             <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              {content.major + ", " + content.class}
+              {content.majors + ", " + content.class}
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardContent>
-          <Typography variant="body2">
-            {content.school}
+          <Typography variant="text.primary">
+            {content.bio}
           </Typography>
         </CardContent>
         <CardActions>

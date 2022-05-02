@@ -40,13 +40,13 @@ function AddClassesPage() {
   useEffect(() => {
     if(expanded){
 
-      setFriends([])
+      setFriends(["Ruitao Li", "Max Sobkov"])
 
-      getFriends(expandedContent.course_id).then((names) => {
-        Promise.all(names).then(response => {
-          setFriends(response)
-        })
-      })
+      // getFriends(expandedContent.course_id).then((names) => {
+      //   Promise.all(names).then(response => {
+      //     setFriends(response)
+      //   })
+      // })
 
     }
   }, [expandedContent])

@@ -9,7 +9,8 @@ import Typography from '@mui/material/Typography';
 import axios from 'axios'
 
 const UserInfo = ({ content }) => {
-  // console.log(content)
+  console.log(content)
+
   return (
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
@@ -17,10 +18,13 @@ const UserInfo = ({ content }) => {
           {content.full_name}
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="body1">
-          {(content.major) + ", " + (content.class)}
+          {(content.majors) + ", " + (content.class)}
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          {content.school}
+          {"Bio: " + content.bio}
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+          {"No Schedule Yet!"}
         </Typography>
       </CardContent>
     </Card>
