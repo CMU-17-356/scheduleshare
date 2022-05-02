@@ -7,13 +7,15 @@ import Grid from '@mui/material/Grid';
 
 function AddFriendsPage() {
   //id should be this user's id
-  let [expandedID, setExpandedID] = useState(-1)
+  let [expandedUsername, setExpandedUsername] = useState("")
+  let [expanded, setExpanded] = useState(false)
   //const users = useUsers()
   const users = [{"username": "michaelh",  "password": "17356",
     "full_name": "Michael Hilton",
     "major": "Information Systems",
     "school": "Heinz College of Information Systems and Public Policy",
     "class": "2022",
+    "desc": "Hi everyone! My name is Michael and I am so excited to meet new people... ",
     "isFriend": false,
     "schedule_id": 1
   },
@@ -22,6 +24,7 @@ function AddFriendsPage() {
   "major": "Computer Science",
   "school": "School of Computer Science",
   "class": "2022",
+  "desc": "Hi everyone! My name is Hyrum and I am so excited to meet new people... ",
   "isFriend": true,
   "schedule_id": 1
   },
@@ -30,12 +33,14 @@ function AddFriendsPage() {
   "major": "Business Administration",
   "school": "Tepper School of Business",
   "class": "2024",
+  "desc": "Hi everyone! My name is Khushi and I am so excited to meet new people... ",
   "isFriend": false,
   "schedule_id": 1
   }]
 
   const show = (id) => {
-    setExpandedID(id)
+    setExpanded(true)
+    setExpandedUsername(username)
   }
 
   return (
@@ -56,7 +61,7 @@ function AddFriendsPage() {
           <ScrollableList myContents = {users} isCourse = {false} show = {show}/>
         </Grid>
         <Grid item xs={6}>
-          {/* <UserInfo id = {expandedID}/> */}
+          {expanded && <UserInfo id = {expandedUsername}/> }
         </Grid>
       </Grid>
     </div>

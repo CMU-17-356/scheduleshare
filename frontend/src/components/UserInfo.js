@@ -25,23 +25,23 @@ function UserInfo({id}) {
 
   return (
     <Card sx={{ minWidth: 275 }}>
-        <CardActionArea onClick={() => show(content.id)}>
+        <CardActionArea onClick={() => show(id)}>
           <CardContent>
             <Typography variant="h5" component="div">
-              {content.full_name}
+              {user.full_name}
             </Typography>
             <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              {content.major + ", " + content.year}
+              {user.major + ", " + user.year}
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardContent>
           <Typography variant="body2">
-            {content.school}
+            {user.school}
           </Typography>
         </CardContent>
         <CardActions>
-          {content.isFriend && 
+          {user.isFriend && 
           <Button size="small" onClick={() => addFriend()}>Add Friend</Button>
           }
         </CardActions>
