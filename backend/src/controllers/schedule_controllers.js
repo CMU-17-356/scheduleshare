@@ -83,27 +83,45 @@ const delete_schedule_by_id = (req, res) => {
 };
 
 
-
-
-
 const get_users_by_course_id = (req, res) => {
-  const schedule = Schedule.find({courses: req.params._id}, (err, result) => {
-      if (err) {
-          res.status(400).send(err);
-      } else {
-          
-          let schedule_list = result.map((r) => r.toObject());
-          console.log(schedule_list);
-          let result_list = [];
-          for (let i = 0; i < schedule_list.length; i++) {
-            let schedule = schedule_list[i];
-            console.log(schedule);
-            result_list.push(schedule.user_id);
-          }
-          res.status(200).send(result_list);
-      }
-  });
+    const client = startDatabase();
+    client.connect(async function(err, client) {
+        const collection = client.db("ScheduleShare").collection('Schedule');
+        collection.find({courses: req.params._id}).toArray(function(err, result) {
+            if (err) {
+                res.status(400).send(err);
+            } else {
+                let schedule_list = result;
+                console.log(schedule_list);
+                let result_list = [];
+                for (let i = 0; i < schedule_list.length; i++) {
+                let schedule = schedule_list[i];
+                console.log(schedule);
+                result_list.push(schedule.user_id);
+                }
+                res.status(200).send(result_list);
+            }
+            client.close();
+        });
+    });
 };
+//   const schedule = Schedule.find({courses: req.params._id}, (err, result) => {
+//       if (err) {
+//           res.status(400).send(err);
+//       } else {
+          
+//           let schedule_list = result.map((r) => r.toObject());
+//           console.log(schedule_list);
+//           let result_list = [];
+//           for (let i = 0; i < schedule_list.length; i++) {
+//             let schedule = schedule_list[i];
+//             console.log(schedule);
+//             result_list.push(schedule.user_id);
+//           }
+//           res.status(200).send(result_list);
+//       }
+//   });
+
 
 const add_course_by_id = (req, res) => {
     const client = startDatabase();
