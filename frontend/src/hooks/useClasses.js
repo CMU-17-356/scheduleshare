@@ -29,7 +29,6 @@ export function useSchedule() {
       method: "GET",
       url: "http://localhost:3000/schedule/626f6370708292b334306a27",
     }).then(res => {
-      console.log(res.data)
       setSchedule(res.data[0].courses)
 
     }).catch(e => {
