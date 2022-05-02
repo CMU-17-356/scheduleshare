@@ -32,6 +32,33 @@ const view_friend_by_id = (req, res) => {
     });
 };
 
+const view_friends_by_user_id = (req, res) => {
+    const client = startDatabase();
+    client.connect(async function(err, client) {
+        
+        const collection = client.db("ScheduleShare").collection('Friend');
+        const _id = mongoose.Types.ObjectId(req.params._id);
+        collection.find({friend_1: req.params._id}).toArray(function(err, result) {
+            if (err) {
+                res.status(400).send(err);
+            } else {
+                let friend_list = result;
+                console.log(friend_list);
+                let result_list = [];
+                for (let i = 0; i < friend_list.length; i++) {
+                let friend = friend_list[i];
+                console.log(friend);
+                result_list.push(friend.friend_2);
+                }
+                res.status(200).send(result_list);
+            }
+            client.close();
+        })
+    })
+};
+
+
+
 
 const add_friend = (req, res) => {
     const client = startDatabase();
@@ -68,20 +95,26 @@ const update_friend_by_id = (req, res) => {
 };
 
 const delete_friend_by_id = (req, res) => {
-    const friend = Friend.deleteOne({_id: req.params._id}, (err, result) => {
-        if (err) {
-            res.status(400).send(err);
-        } else {
-            res.status(200).send('Successfully Deleted Friend');
-        }
-    });
+    const client = startDatabase();
+    client.connect(async function(err, client) {
+        const collection = client.db("ScheduleShare").collection('Friend');
+        const _id = mongoose.Types.ObjectId(req.params._id);
+        collection.deleteOne({_id: _id},  function (err, result) {
+            if (err) {
+                res.status(400).send(err);
+            } else {
+                res.status(200).send('Successfully Updated User');
+            }
+            client.close();
+        })
+    })
 };
-
 
 module.exports = {
     view_all_friends,
     view_friend_by_id,
     add_friend,
     update_friend_by_id,
-    delete_friend_by_id
+    delete_friend_by_id,
+    view_friends_by_user_id
 };

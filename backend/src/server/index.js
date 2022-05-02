@@ -74,6 +74,10 @@ app.get('/friend/', friendControllers.view_all_friends,
 app.get('/friend/:_id', friendControllers.view_friend_by_id,
 );
 
+app.get('/friend/user/:_id', friendControllers.view_friends_by_user_id,
+);
+
+
 app.post('/friend/', friendControllers.add_friend,
 );
 
