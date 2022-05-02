@@ -6,7 +6,6 @@ function Schedule({ scheduleList }) {
 
   const show = (id) => { }
 
-  console.log(scheduleList)
   return (
     <div>{
       scheduleList &&

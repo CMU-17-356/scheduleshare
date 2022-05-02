@@ -27,11 +27,29 @@ function AddClassesPage() {
     }
   }
 
+  const getFriends = async (course_id) => {
+    const {data} = await axios(`http://localhost:3000/schedule/course/${course_id}/users`)
+
+    return data.map(async (id) => {
+      return axios(`http://localhost:3000/user/${id}`).then(response =>{
+        return response.data[0].full_name
+      })
+    })
+
+  }
+
   useEffect(() => {
     if(expanded){
-      setFriends(["Tom"])
+
+      setFriends([])
+
+      getFriends(expandedContent.course_id).then((names) => {
+        Promise.all(names).then(response => {
+          setFriends(response)
+        })
+      })
+
     }
-    console.log("hi")
   }, [expandedContent])
 
 
