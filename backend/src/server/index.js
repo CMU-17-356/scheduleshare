@@ -79,4 +79,7 @@ app.delete('/friend/:_id', friendControllers.delete_friend_by_id,
 app.get('/course/:_id', courseControllers.view_course_by_id,
 );
 
+app.get('/course/first/:_id', courseControllers.get_first_x_courses,
+);
+
 exports.app = app;
