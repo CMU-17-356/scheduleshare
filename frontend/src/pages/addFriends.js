@@ -15,7 +15,7 @@ function AddFriendsPage() {
     "major": "Information Systems",
     "school": "Heinz College of Information Systems and Public Policy",
     "class": "2022",
-    "desc": "Hi everyone! My name is Michael and I am so excited to meet new people... ",
+    "desc": "Hi everyone! My name is Michael and I am so excited to meet new people at CMU. Some of my hobbies include biking, knitting, and rock climbing. Add me as a friend if you think we might have stuff in common! ",
     "isFriend": false,
     "schedule_id": 1
   },
@@ -24,7 +24,7 @@ function AddFriendsPage() {
   "major": "Computer Science",
   "school": "School of Computer Science",
   "class": "2022",
-  "desc": "Hi everyone! My name is Hyrum and I am so excited to meet new people... ",
+  "desc": "Hi everyone! My name is Hyrum and I am so excited to meet new people at CMU. Some of my hobbies include biking, knitting, and rock climbing. Add me as a friend if you think we might have stuff in common!  ",
   "isFriend": true,
   "schedule_id": 1
   },
@@ -33,13 +33,13 @@ function AddFriendsPage() {
   "major": "Business Administration",
   "school": "Tepper School of Business",
   "class": "2024",
-  "desc": "Hi everyone! My name is Khushi and I am so excited to meet new people... ",
+  "desc": "Hi everyone! My name is Khushi and I am so excited to meet new people at CMU. Some of my hobbies include biking, knitting, and rock climbing. Add me as a friend if you think we might have stuff in common! ",
   "isFriend": false,
   "schedule_id": 1
   }]
 
-  const show = (id) => {
-    setExpanded(true)
+  const show = (username) => {
+    setExpanded(!expanded)
     setExpandedUsername(username)
   }
 

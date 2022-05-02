@@ -66,7 +66,7 @@ const PreviewCard = ({ content, isCourse, show }) => {
   else {
     return (
       <Card sx={{ minWidth: 275 }}>
-        <CardActionArea onClick={() => show(content.id)}>
+        <CardActionArea onClick={() => show(content.full_name)}>
           <CardContent>
             <Typography variant="h5" component="div">
               {content.full_name}

@@ -8,9 +8,9 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import axios from 'axios'
 
-function UserInfo({id}) {
+function UserInfo({content}) {
 
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState(content)
 
   // useEffect(() => {
   //   axios({
@@ -25,26 +25,27 @@ function UserInfo({id}) {
 
   return (
     <Card sx={{ minWidth: 275 }}>
-        <CardActionArea onClick={() => show(id)}>
           <CardContent>
             <Typography variant="h5" component="div">
-              {user.full_name}
+              Michael Hilton
             </Typography>
             <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              {user.major + ", " + user.year}
+              Information Systems, 2022
             </Typography>
           </CardContent>
-        </CardActionArea>
         <CardContent>
           <Typography variant="body2">
-            {user.school}
+            Heinz College of Information Systems and Public Policy
           </Typography>
         </CardContent>
-        <CardActions>
-          {user.isFriend && 
-          <Button size="small" onClick={() => addFriend()}>Add Friend</Button>
-          }
-        </CardActions>
+        <CardContent>
+          <Typography variant="body2">
+            Bio: Hi everyone! My name is Michael and I am so excited to 
+            meet new people at CMU. Some of my hobbies include biking, knitting, 
+            and rock climbing. Add me as a friend if you think we might have stuff 
+            in common! 
+          </Typography>
+        </CardContent>
       </Card>
   )
 }
