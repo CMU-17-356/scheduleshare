@@ -12,14 +12,18 @@ import UserInfo from './UserInfo';
 
 const PreviewCard = ({ content, isCourse, show }) => {
 
-  const addClass = () => {
+  const addClass = (courseName) => {
     axios({
-      method: "POST",
-      url: "something",
-      body: { id: content.id }
+      method: "PUT",
+      url: `http://localhost:3000/schedule/626f20a5a69e0d71a42696ef`,
+      body: { 
+      courses: [content.course_id]
+     }
     }).then(res => {
-      console.log(content.id, "added")
+      console.log(typeof(content.course_id))
+      alert(`${courseName} added to schedule!`)
     }).catch(e => {
+      console.log(e)
       alert("Error Adding Course")
     })
   }
@@ -31,6 +35,7 @@ const PreviewCard = ({ content, isCourse, show }) => {
       body: { id: content.id }
     }).then(res => {
       console.log(content.id, "added")
+
     }).catch(e => {
       alert("Error Adding Course")
     })
@@ -40,23 +45,23 @@ const PreviewCard = ({ content, isCourse, show }) => {
   if (isCourse) {
     return (
       <Card sx={{ minWidth: 275 }}>
-        <CardActionArea onClick={() => show(content.id)}>
+        <CardActionArea onClick={() => show(content)}>
           <CardContent>
             <Typography variant="h5" component="div">
               {content.name}
             </Typography>
             <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              {content.number}
+              {(content.course_id) + " " + (content.units) + " units"}
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardContent>
-          <Typography variant="body2">
-            {content.description}
+          <Typography variant="text.primary">
+            {content.desc.substring(0,90) + "..." }
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" onClick={() => addClass()}>Add to schedule</Button>
+          <Button size="small" onClick={() => addClass(content.name)}>Add to schedule</Button>
         </CardActions>
       </Card>
     )
