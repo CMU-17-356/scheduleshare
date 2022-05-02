@@ -23,7 +23,7 @@ const UserInfo = ({ content }) => {
           {content.school}
         </Typography>
         <Typography variant="text.primary">
-          {"Bio: " + (content.desc.substring(0,300)) + "..."}
+          {"Bio: " + (content.bio.substring(0,300)) + "..."}
         </Typography>
       </CardContent>
     </Card>
