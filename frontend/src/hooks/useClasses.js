@@ -27,7 +27,7 @@ export function useSchedule() {
   useEffect(() => {
     axios({
       method: "GET",
-      url: "http://localhost:3000/schedule/626f6370708292b334306a27",
+      url: "http://localhost:3000/schedule/626f21bdf3743ba6b3ebf4d4",
     }).then(res => {
       setSchedule(res.data[0].courses)
 

@@ -22,9 +22,6 @@ const UserInfo = ({ content }) => {
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
           {content.school}
         </Typography>
-        <Typography variant="text.primary">
-          {"Bio: " + (content.desc.substring(0,300)) + "..."}
-        </Typography>
       </CardContent>
     </Card>
   )

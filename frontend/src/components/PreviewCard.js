@@ -17,7 +17,7 @@ const PreviewCard = ({ content, isCourse, show }) => {
 
     axios({
       method: "PUT",
-      url: `http://localhost:3000/schedule/626f6370708292b334306a27/course/${content.course_id}`
+      url: `http://localhost:3000/schedule/626f21bdf3743ba6b3ebf4d4/course/${content.course_id}`
     }).then(res => {
       console.log(content.course_id)
       alert(`${courseName} added to schedule!`)

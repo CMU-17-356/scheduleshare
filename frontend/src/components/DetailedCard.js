@@ -59,7 +59,7 @@ const DetailedCard = ({ content, friends }) => {
         </CardContent>
         <CardContent>
           <Typography variant="body1">
-            {friends && "Friends: " + friends}
+            {friends && "Friends in this Course: " + friends}
             {!friends && "No friends in this class"}
           </Typography>
         </CardContent>
