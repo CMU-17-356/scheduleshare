@@ -1,4 +1,6 @@
 const Schedule = require('../schema/schedule_schema');
+const {startDatabase} = require('../db/mongo');
+const mongoose = require('mongoose');
 
 const view_all_schedules = (req, res) => {
     const client = startDatabase();
