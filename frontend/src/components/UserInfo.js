@@ -8,44 +8,25 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import axios from 'axios'
 
-function UserInfo({id}) {
-
-  const [user, setUser] = useState({})
-
-  // useEffect(() => {
-  //   axios({
-  //     method: "GET",
-  //     url: "something",
-  //     body: {id: id}
-  //   }).then(res => {
-  //     setUser(res.data)
-  //   }).catch(e => {
-  //   })
-  // }, [])
-
+const UserInfo = ({ content }) => {
+  // console.log(content)
   return (
     <Card sx={{ minWidth: 275 }}>
-        <CardActionArea onClick={() => show(content.id)}>
-          <CardContent>
-            <Typography variant="h5" component="div">
-              {content.full_name}
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              {content.major + ", " + content.year}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-        <CardContent>
-          <Typography variant="body2">
-            {content.school}
-          </Typography>
-        </CardContent>
-        <CardActions>
-          {content.isFriend && 
-          <Button size="small" onClick={() => addFriend()}>Add Friend</Button>
-          }
-        </CardActions>
-      </Card>
+      <CardContent>
+        <Typography variant="h5" component="div">
+          {content.full_name}
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="body1">
+          {(content.major) + ", " + (content.class)}
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+          {content.school}
+        </Typography>
+        <Typography variant="text.primary">
+          {"Bio: " + (content.desc.substring(0,300)) + "..."}
+        </Typography>
+      </CardContent>
+    </Card>
   )
 }
 
