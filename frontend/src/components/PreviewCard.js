@@ -12,16 +12,17 @@ import UserInfo from './UserInfo';
 
 const PreviewCard = ({ content, isCourse, show }) => {
 
-  const [thisCourse, setThisCourse] = useState(content)
+  console.log(content)
+  const addClass = (courseName) => {
 
-  const addClass = () => {
     axios({
-      method: "POST",
-      url: "something",
-      body: { id: content.id }
+      method: "PUT",
+      url: `http://localhost:3000/schedule/626f21bdf3743ba6b3ebf4d4/course/${content.course_id}`
     }).then(res => {
-      console.log(content.id, "added")
+      console.log(content.course_id)
+      alert(`${courseName} added to schedule!`)
     }).catch(e => {
+      console.log(e)
       alert("Error Adding Course")
     })
   }
@@ -45,23 +46,25 @@ const PreviewCard = ({ content, isCourse, show }) => {
   if (isCourse) {
     return (
       <Card sx={{ minWidth: 275 }}>
-        <CardActionArea onClick={() => show(content.id)}>
+        <CardActionArea onClick={() => show(content)}>
           <CardContent>
             <Typography variant="h5" component="div">
-              {thisCourse.name}
+              {content.name}
             </Typography>
             <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              {thisCourse.id}
+
+              {(content.course_id) + " " + (content.units) + " units"}
+
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardContent>
-          <Typography variant="body2">
-            {thisCourse.desc}
+          <Typography variant="text.primary">
+            {content.desc.substring(0,90) + "..." }
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" onClick={() => addClass(content.id)}>Add to schedule</Button>
+          <Button size="small" onClick={() => addClass(content.name)}>Add to schedule</Button>
         </CardActions>
       </Card>
     )
@@ -75,13 +78,13 @@ const PreviewCard = ({ content, isCourse, show }) => {
               {content.full_name}
             </Typography>
             <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              {content.major + ", " + content.class}
+              {content.majors + ", " + content.class}
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardContent>
-          <Typography variant="body2">
-            {content.school}
+          <Typography variant="text.primary">
+            {content.bio}
           </Typography>
         </CardContent>
         <CardActions>

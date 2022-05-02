@@ -57,6 +57,13 @@ app.post('/schedule/', scheduleControllers.add_schedule,
 app.put('/schedule/:_id', scheduleControllers.update_schedule_by_id,
 );
 
+app.put('/schedule/:_id/course/:course_id', scheduleControllers.add_course_by_id,
+);
+
+app.delete('/schedule/:_id/course/:course_id', scheduleControllers.delete_course_by_id,
+);
+
+
 app.delete('/schedule/:_id', scheduleControllers.delete_schedule_by_id,
 );
 
@@ -66,6 +73,10 @@ app.get('/friend/', friendControllers.view_all_friends,
 
 app.get('/friend/:_id', friendControllers.view_friend_by_id,
 );
+
+app.get('/friend/user/:_id', friendControllers.view_friends_by_user_id,
+);
+
 
 app.post('/friend/', friendControllers.add_friend,
 );
@@ -77,6 +88,9 @@ app.delete('/friend/:_id', friendControllers.delete_friend_by_id,
 );
 
 app.get('/course/:_id', courseControllers.view_course_by_id,
+);
+
+app.get('/course/first/:_id', courseControllers.get_first_x_courses,
 );
 
 exports.app = app;

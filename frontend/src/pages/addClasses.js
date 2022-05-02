@@ -1,38 +1,60 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import Header from "../components/Header";
 import ScrollableList from "../components/ScrollableList"
 import Schedule from "../components/Schedule"
 import DetailedCard from "../components/DetailedCard"
 import Grid from '@mui/material/Grid';
+import useClasses, { useSchedule } from "../hooks/useClasses";
+import axios from "axios";
 
 function AddClassesPage() {
   //id should be this user's id
-  let [expandedID, setExpandedID] = useState(-1)
   let [expanded, setExpanded] = useState(false)
+  let [expandedContent, setExpandedContent] = useState({})
+  const [friends, setFriends] = useState([])
+  
 
-  const courses = [{"id": "15-122",  "name": "Principles of Imperative Computation",
-  "department": "Computer Science",
-  "units": 10.0,
-  "desc": "For students with a basic understanding of programming..."
-},
-{"id": "17-356",  "name": "Software Engineering for Startups",
-  "department": "Software Engineering",
-  "units": 12.0,
-  "desc": "For students who want to ship software well"
-},
-{"id": "17-214",  "name": "Principles of Software Construction",
-  "department": "Software Engineering",
-  "units": 12.0,
-  "desc": "For students who want to write extensible code"
-}]
-
-  const show = (id) => {
-    setExpanded(true)
-    setExpandedID(id)
+  const show = (content) => {
+    if(content.course_id === expandedContent.course_id){
+      setExpanded(false)
+      setExpandedContent({})
+    }
+    else{
+      setExpanded(true)
+      setExpandedContent(content)
+    }
   }
-  //const {classes} = useClasses()
 
+  const getFriends = async (course_id) => {
+    const {data} = await axios(`http://localhost:3000/schedule/course/${course_id}/users`)
+
+    return data.map(async (id) => {
+      return axios(`http://localhost:3000/user/${id}`).then(response =>{
+        return response.data[0].full_name
+      })
+    })
+
+  }
+
+  useEffect(() => {
+    if(expanded){
+
+      setFriends(["Ruitao Li", "Max Sobkov"])
+
+      // getFriends(expandedContent.course_id).then((names) => {
+      //   Promise.all(names).then(response => {
+      //     setFriends(response)
+      //   })
+      // })
+
+    }
+  }, [expandedContent])
+
+
+
+  const courses = useClasses()
+  const schedule = useSchedule()
   return (
     <div className='addClassesPage'>
       <Header />
@@ -53,8 +75,8 @@ function AddClassesPage() {
           </div>
         </Grid>
         <Grid item xs={6}>
-          {!expanded && <Schedule scheduleList = {[]}/>}
-          {expanded && <DetailedCard id = {expandedID}/>}
+          {!expanded && <Schedule scheduleList = {schedule}/>}
+          {expanded && <DetailedCard content = {expandedContent} friends = {friends}/>}
         </Grid>
       </Grid>
       
