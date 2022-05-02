@@ -9,8 +9,30 @@ function AddFriendsPage() {
   //id should be this user's id
   let [expandedID, setExpandedID] = useState(-1)
   //const users = useUsers()
-  const users = []
-  console.log(typeof users)
+  const users = [{"username": "michaelh",  "password": "17356",
+    "full_name": "Michael Hilton",
+    "major": "Information Systems",
+    "school": "Heinz College of Information Systems and Public Policy",
+    "class": "2022",
+    "isFriend": false,
+    "schedule_id": 1
+  },
+  {"username": "hyrumw",  "password": "17356",
+  "full_name": "Hyrum Wright",
+  "major": "Computer Science",
+  "school": "School of Computer Science",
+  "class": "2022",
+  "isFriend": true,
+  "schedule_id": 1
+  },
+  {"username": "khushiw",  "password": "12345",
+  "full_name": "Khushi Wadhwa",
+  "major": "Business Administration",
+  "school": "Tepper School of Business",
+  "class": "2024",
+  "isFriend": false,
+  "schedule_id": 1
+  }]
 
   const show = (id) => {
     setExpandedID(id)
@@ -31,10 +53,10 @@ function AddFriendsPage() {
               label="Search"
             />
           </div>
-          <ScrollableList myContents = {users} isClass ={false} show = {show}/>
+          <ScrollableList myContents = {users} isCourse = {false} show = {show}/>
         </Grid>
         <Grid item xs={6}>
-          <UserInfo id = {expandedID}/>
+          {/* <UserInfo id = {expandedID}/> */}
         </Grid>
       </Grid>
     </div>

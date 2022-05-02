@@ -34,7 +34,7 @@ const PreviewCard = ({ content, isCourse, show }) => {
     }).then(res => {
       console.log(content.id, "added")
     }).catch(e => {
-      alert("Error Adding Course")
+      alert("Error Adding Friend")
     })
   }
 
@@ -69,20 +69,20 @@ const PreviewCard = ({ content, isCourse, show }) => {
         <CardActionArea onClick={() => show(content.id)}>
           <CardContent>
             <Typography variant="h5" component="div">
-              {content.name}
+              {content.full_name}
             </Typography>
             <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              {content.major + ", " + content.year}
+              {content.major + ", " + content.class}
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardContent>
           <Typography variant="body2">
-            {content.description}
+            {content.school}
           </Typography>
         </CardContent>
         <CardActions>
-          {content.isFriend && 
+          {(!content.isFriend) && 
           <Button size="small" onClick={() => addFriend()}>Add Friend</Button>
           }
         </CardActions>
