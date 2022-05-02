@@ -59,7 +59,7 @@ const update_schedule_by_id = (req, res) => {
             if (err) {
                 res.status(400).send(err);
             } else {
-                res.status(200).send('Successfully Updated User');
+                res.status(200).send('Successfully Updated Schedule');
             }
             client.close();
         })
@@ -67,14 +67,24 @@ const update_schedule_by_id = (req, res) => {
 };
 
 const delete_schedule_by_id = (req, res) => {
-    const schedule = Schedule.deleteOne({_id: req.params._id}, (err, result) => {
-        if (err) {
-            res.status(400).send(err);
-        } else {
-            res.status(200).send('Successfully Deleted Schedule');
-        }
-    });
+    const client = startDatabase();
+    client.connect(async function(err, client) {
+        const collection = client.db("ScheduleShare").collection('Schedule');
+        const _id = mongoose.Types.ObjectId(req.params._id);
+        collection.deleteOne({_id: _id}, {$set: req.body}, function (err, result) {
+            if (err) {
+                res.status(400).send(err);
+            } else {
+                res.status(200).send('Successfully Updated Schedule');
+            }
+            client.close();
+        })
+    })
 };
+
+
+
+
 
 const get_users_by_course_id = (req, res) => {
   const schedule = Schedule.find({courses: req.params._id}, (err, result) => {
@@ -95,6 +105,39 @@ const get_users_by_course_id = (req, res) => {
   });
 };
 
+const add_course_by_id = (req, res) => {
+    const client = startDatabase();
+    client.connect(async function(err, client) {
+        const collection = client.db("ScheduleShare").collection('Schedule');
+        const _id = mongoose.Types.ObjectId(req.params._id);
+        collection.updateOne({_id: _id}, {$push: {courses: req.params.course_id}}, function (err, result) {
+            if (err) {
+                res.status(400).send(err);
+            } else {
+                res.status(200).send('Successfully Updated Schedule');
+            }
+            client.close();
+        })
+    })
+};
+
+const delete_course_by_id = (req, res) => {
+    const client = startDatabase();
+    client.connect(async function(err, client) {
+        const collection = client.db("ScheduleShare").collection('Schedule');
+        const _id = mongoose.Types.ObjectId(req.params._id);
+        collection.updateOne({_id: _id}, {$pull: {courses: req.params.course_id}}, function (err, result) {
+            if (err) {
+                res.status(400).send(err);
+            } else {
+                res.status(200).send('Successfully Updated Schedule');
+            }
+            client.close();
+        })
+    })
+};
+
+
 
 
 module.exports = {
@@ -103,5 +146,7 @@ module.exports = {
     add_schedule,
     update_schedule_by_id,
     delete_schedule_by_id,
-    get_users_by_course_id
+    get_users_by_course_id,
+    add_course_by_id,
+    delete_course_by_id
 };
