@@ -12,6 +12,7 @@ function AddClassesPage() {
   //id should be this user's id
   let [expanded, setExpanded] = useState(false)
   let [expandedContent, setExpandedContent] = useState({})
+  const [friends, setFriends] = useState([])
   
 
 
@@ -25,6 +26,13 @@ function AddClassesPage() {
       setExpandedContent(content)
     }
   }
+
+  useEffect(() => {
+    if(expanded){
+      setFriends(["Tom"])
+    }
+    console.log("hi")
+  }, [expandedContent])
 
 
 
@@ -51,7 +59,7 @@ function AddClassesPage() {
         </Grid>
         <Grid item xs={6}>
           {!expanded && <Schedule scheduleList = {schedule}/>}
-          {expanded && <DetailedCard content = {expandedContent}/>}
+          {expanded && <DetailedCard content = {expandedContent} friends = {friends}/>}
         </Grid>
       </Grid>
       

@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import axios from 'axios';
 import { useClass } from '../hooks/useClasses';
 
-const DetailedCard = ({ content }) => {
+const DetailedCard = ({ content, friends }) => {
   console.log(content)
   return (
     <Card sx={{ minWidth: 275 }}>
@@ -26,6 +26,10 @@ const DetailedCard = ({ content }) => {
         <Typography variant="body1">
           {content.prereqs && "Prerequisites: " + content.prereqs}
           {!content.prereqs && "No Prerequisties"}
+        </Typography>
+        <Typography variant="body1">
+          {friends && "Friends: " + friends}
+          {!friends && "No friends in this class"}
         </Typography>
       </CardContent>
     </Card>
