@@ -11,9 +11,10 @@ function Schedule({ scheduleList }) {
     <div>{
       scheduleList &&
       scheduleList.map((id) => {
+        
         <Card sx={{ minWidth: 275 }}>
           <Typography variant="h5" component="div">
-            {id}
+            id
           </Typography>
         </Card>
       })
