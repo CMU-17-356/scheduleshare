@@ -59,7 +59,7 @@ function AddClassesPage() {
     <div className='addClassesPage'>
       <Header />
       <h2>Class Search</h2>
-
+      
       <Grid container spacing={4}>
         <Grid item xs={6}>
           <div className="search">

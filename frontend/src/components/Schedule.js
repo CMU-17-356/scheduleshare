@@ -7,7 +7,9 @@ function Schedule({ scheduleList }) {
   const show = (id) => { }
 
   return (
-    <div>{
+    <div>
+      <h2>My Schedule</h2>
+      {
       scheduleList &&
       scheduleList.map((id) => {
         
