@@ -7,7 +7,7 @@ import Grid from '@mui/material/Grid';
 
 function AddFriendsPage() {
   //id should be this user's id
-  let [expandedUsername, setExpandedUsername] = useState("")
+  let [expandedContent, setExpandedContent] = useState({})
   let [expanded, setExpanded] = useState(false)
   //const users = useUsers()
   const users = [{"username": "michaelh",  "password": "17356",
@@ -38,9 +38,15 @@ function AddFriendsPage() {
   "schedule_id": 1
   }]
 
-  const show = (username) => {
-    setExpanded(!expanded)
-    setExpandedUsername(username)
+  const show = (content) => {
+    if(content.username === expandedContent.username){
+      setExpanded(false)
+      setExpandedContent({})
+    }
+    else{
+      setExpanded(true)
+      setExpandedContent(content)
+    }
   }
 
   return (
@@ -61,7 +67,7 @@ function AddFriendsPage() {
           <ScrollableList myContents = {users} isCourse = {false} show = {show}/>
         </Grid>
         <Grid item xs={6}>
-          {expanded && <UserInfo id = {expandedUsername}/> }
+          {expanded && <UserInfo content = {expandedContent}/> }
         </Grid>
       </Grid>
     </div>
