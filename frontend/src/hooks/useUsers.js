@@ -8,16 +8,14 @@ export default function useUsers() {
   useEffect(() => {
     axios({
       method: "GET",
-      url: "something",
+      url: "http://localhost:3000/user/",
     }).then(res => {
-        setUsers( prevUsers => {
-        return [...prevUsers, res.data.smth] //change this
-      })
+        setUsers(res.data)
 
     }).catch(e => {
 
     })
   }, [])
 
-  return {users}
+  return users
 }
