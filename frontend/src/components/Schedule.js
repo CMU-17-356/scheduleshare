@@ -11,11 +11,13 @@ function Schedule({ scheduleList }) {
       scheduleList &&
       scheduleList.map((id) => {
         
-        return (<Card sx={{ minWidth: 275 }}>
+        return (<div key = {id}>
+          <Card sx={{ minWidth: 275 }}>
           <Typography variant="h5" component="div" align="center">
             {id}
           </Typography>
-        </Card>)
+        </Card>
+        </div>)
       })
     }
     {scheduleList.length === 0 && "Schedule is Empty!"}</div>
