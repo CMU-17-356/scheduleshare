@@ -3,7 +3,7 @@ import ReactScrollableList from 'react-scrollable-list'
 
 const ScrollableList = ({myContents, isClass, show}) => {
 
-  const listContents = myContents.map(myContent => ({ id: myContent.id, content: <PreviewCard key={myContent.id} content={myContent} isClass={isClass} show = {show} /> }))
+  const listContents = myContents.map(myContent => ({ id: myContent.course_id, content: <PreviewCard key={myContent.id} content={myContent} isCourse={isClass} show = {show} /> }))
   return (
 
     <div>

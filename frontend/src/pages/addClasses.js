@@ -1,25 +1,35 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import Header from "../components/Header";
 import ScrollableList from "../components/ScrollableList"
 import Schedule from "../components/Schedule"
 import DetailedCard from "../components/DetailedCard"
 import Grid from '@mui/material/Grid';
+import useClasses, { useSchedule } from "../hooks/useClasses";
+import axios from "axios";
 
 function AddClassesPage() {
   //id should be this user's id
-  let [expandedID, setExpandedID] = useState(-1)
   let [expanded, setExpanded] = useState(false)
+  let [expandedContent, setExpandedContent] = useState({})
+  
 
-  const courses = ['a']
-  console.log(typeof courses)
 
-  const show = (id) => {
-    setExpanded(true)
-    setExpandedID(id)
+  const show = (content) => {
+    if(content.course_id === expandedContent.course_id){
+      setExpanded(false)
+      setExpandedContent({})
+    }
+    else{
+      setExpanded(true)
+      setExpandedContent(content)
+    }
   }
-  //const {classes} = useClasses()
 
+
+
+  const courses = useClasses()
+  const schedule = useSchedule()
   return (
     <div className='addClassesPage'>
       <Header />
@@ -40,8 +50,8 @@ function AddClassesPage() {
           </div>
         </Grid>
         <Grid item xs={6}>
-          {!expanded && <Schedule scheduleList = {[]}/>}
-          {expanded && <DetailedCard id = {expandedID}/>}
+          {!expanded && <Schedule scheduleList = {schedule}/>}
+          {expanded && <DetailedCard content = {expandedContent}/>}
         </Grid>
       </Grid>
       
