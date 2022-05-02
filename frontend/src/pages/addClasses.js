@@ -15,7 +15,6 @@ function AddClassesPage() {
   const [friends, setFriends] = useState([])
   
 
-
   const show = (content) => {
     if(content.course_id === expandedContent.course_id){
       setExpanded(false)
@@ -72,7 +71,7 @@ function AddClassesPage() {
             />
           </div>
           <div className="list">
-            <ScrollableList myContents = {courses} isClass ={true} show = {show}/>
+            <ScrollableList myContents = {courses} isCourse ={true} show = {show}/>
           </div>
         </Grid>
         <Grid item xs={6}>

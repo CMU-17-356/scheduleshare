@@ -1,24 +1,32 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardActionArea from '@mui/material/CardActionArea';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 import axios from 'axios'
 
-function UserInfo({id}) {
-
-  const [user, setUser] = useState({})
-
-  useEffect(() => {
-    axios({
-      method: "GET",
-      url: "something",
-      body: {id: id}
-    }).then(res => {
-      setUser(res.data)
-    }).catch(e => {
-    })
-  }, [])
-
+const UserInfo = ({ content }) => {
+  // console.log(content)
   return (
-    <div>UserInfo</div>
+    <Card sx={{ minWidth: 275 }}>
+      <CardContent>
+        <Typography variant="h5" component="div">
+          {content.full_name}
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="body1">
+          {(content.major) + ", " + (content.class)}
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+          {content.school}
+        </Typography>
+        <Typography variant="text.primary">
+          {"Bio: " + (content.desc.substring(0,300)) + "..."}
+        </Typography>
+      </CardContent>
+    </Card>
   )
 }
 

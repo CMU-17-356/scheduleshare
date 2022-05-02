@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -12,7 +12,9 @@ import UserInfo from './UserInfo';
 
 const PreviewCard = ({ content, isCourse, show }) => {
 
+
   const addClass = (courseName) => {
+
     axios({
       method: "PUT",
       url: `http://localhost:3000/schedule/626f6370708292b334306a27/course/${content.course_id}`
@@ -28,17 +30,19 @@ const PreviewCard = ({ content, isCourse, show }) => {
   const addFriend = () => {
     axios({
       method: "POST",
-      url: "something",
-      body: { id: content.id }
+      url: "http://localhost:3000/friend/",
+      body: {
+        friend_1: content.id,
+        friend_2: content.id
+        }        
     }).then(res => {
-      console.log(content.id, "added")
-
+      console.log(content.full_name, "added")
     }).catch(e => {
-      alert("Error Adding Course")
+      alert("Error Adding Friend")
     })
   }
 
-
+  
   if (isCourse) {
     return (
       <Card sx={{ minWidth: 275 }}>
@@ -48,7 +52,9 @@ const PreviewCard = ({ content, isCourse, show }) => {
               {content.name}
             </Typography>
             <Typography sx={{ mb: 1.5 }} color="text.secondary">
+
               {(content.course_id) + " " + (content.units) + " units"}
+
             </Typography>
           </CardContent>
         </CardActionArea>
@@ -66,23 +72,23 @@ const PreviewCard = ({ content, isCourse, show }) => {
   else {
     return (
       <Card sx={{ minWidth: 275 }}>
-        <CardActionArea onClick={() => show(content.id)}>
+        <CardActionArea onClick={() => show(content)}>
           <CardContent>
             <Typography variant="h5" component="div">
-              {content.name}
+              {content.full_name}
             </Typography>
             <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              {content.major + ", " + content.year}
+              {content.major + ", " + content.class}
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardContent>
           <Typography variant="body2">
-            {content.description}
+            {content.school}
           </Typography>
         </CardContent>
         <CardActions>
-          {content.isFriend && 
+          {(!content.isFriend) && 
           <Button size="small" onClick={() => addFriend()}>Add Friend</Button>
           }
         </CardActions>
