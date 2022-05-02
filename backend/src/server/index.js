@@ -57,6 +57,13 @@ app.post('/schedule/', scheduleControllers.add_schedule,
 app.put('/schedule/:_id', scheduleControllers.update_schedule_by_id,
 );
 
+app.put('/schedule/:_id/course/:course_id', scheduleControllers.add_course_by_id,
+);
+
+app.delete('/schedule/:_id/course/:course_id', scheduleControllers.delete_course_by_id,
+);
+
+
 app.delete('/schedule/:_id', scheduleControllers.delete_schedule_by_id,
 );
 
