@@ -38,7 +38,7 @@ const view_friends_by_user_id = (req, res) => {
         
         const collection = client.db("ScheduleShare").collection('Friend');
         const _id = mongoose.Types.ObjectId(req.params._id);
-        collection.find({friend_1: req.params._id}).toArray(function(err, result) {
+        collection.find({ $or: [ {friend_1: req.params._id}, {friend_2: req.params._id}]}).toArray(function(err, result) {
             if (err) {
                 res.status(400).send(err);
             } else {
@@ -48,7 +48,10 @@ const view_friends_by_user_id = (req, res) => {
                 for (let i = 0; i < friend_list.length; i++) {
                 let friend = friend_list[i];
                 console.log(friend);
-                result_list.push(friend.friend_2);
+                if (friend.friend_2 != req.params._id) {
+                    result_list.push(friend.friend_2);
+                }
+                
                 }
                 res.status(200).send(result_list);
             }

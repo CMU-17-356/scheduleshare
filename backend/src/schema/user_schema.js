@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema({
     minors: {type: String},
     school: {type: String},
     class : {type: String},
+    bio: {type: String}
 });
 
 module.exports = mongoose.model('User', userSchema);
