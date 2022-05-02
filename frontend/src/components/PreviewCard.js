@@ -29,10 +29,13 @@ const PreviewCard = ({ content, isCourse, show }) => {
   const addFriend = () => {
     axios({
       method: "POST",
-      url: "something",
-      body: { id: content.id }
+      url: "http://localhost:3000/friend/",
+      body: {
+        friend_1: content.id,
+        friend_2: content.id
+        }        
     }).then(res => {
-      console.log(content.id, "added")
+      console.log(content.full_name, "added")
     }).catch(e => {
       alert("Error Adding Friend")
     })
