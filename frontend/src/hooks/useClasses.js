@@ -9,16 +9,32 @@ export default function useClasses() {
   useEffect(() => {
     axios({
       method: "GET",
-      url: "something",
+      url: "http://localhost:3000/course/first/10",
     }).then(res => {
-      setClasses( prevClasses => {
-        return [...prevClasses, res.data.smth] //change this
-      })
+      setClasses(res.data)
 
     }).catch(e => {
       
     })
   }, [])
 
-  return {classes}
+  return classes
+}
+
+export function useSchedule() {
+
+  const [schedule, setSchedule]  = useState([])
+  useEffect(() => {
+    axios({
+      method: "GET",
+      url: "http://localhost:3000/schedule/626f6370708292b334306a27",
+    }).then(res => {
+      setSchedule(res.data[0].courses)
+
+    }).catch(e => {
+      
+    })
+  }, [])
+
+  return schedule
 }

@@ -66,13 +66,19 @@ const update_user_by_id = (req, res) => {
 };
 
 const delete_user_by_id = (req, res) => {
-    const user = User.deleteOne({_id: req.params._id}, (err, result) => {
-        if (err) {
-            res.status(400).send(err);
-        } else {
-            res.status(200).send('Successfully Deleted User');
-        }
-    });
+    const client = startDatabase();
+    client.connect(async function(err, client) {
+        const collection = client.db("ScheduleShare").collection('User');
+        const _id = mongoose.Types.ObjectId(req.params._id);
+        collection.deleteOne({_id: _id}, {$set: req.body}, function (err, result) {
+            if (err) {
+                res.status(400).send(err);
+            } else {
+                res.status(200).send('Successfully Deleted User');
+            }
+            client.close();
+        })
+    })
 };
 
 
