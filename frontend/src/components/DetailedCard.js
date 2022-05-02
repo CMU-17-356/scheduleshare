@@ -17,26 +17,27 @@ const DetailedCard = ({id}) => {
   // }, [])
   
   return (
-    <Card sx={{ minWidth: 275 }}>
-    <CardActionArea onClick={() => show(content.id)}>
-      <CardContent>
-        <Typography variant="h5" component="div">
-          {thisCourse.name}
-        </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          {thisCourse.id}
-        </Typography>
-      </CardContent>
-    </CardActionArea>
-    <CardContent>
-      <Typography variant="body2">
-        {thisCourse.desc}
-      </Typography>
-    </CardContent>
-    <CardActions>
-      <Button size="small" onClick={() => addClass(content.id)}>Add to schedule</Button>
-    </CardActions>
-  </Card>
+    <div>{id}</div>
+  //   <Card sx={{ minWidth: 275 }}>
+  //   <CardActionArea onClick={() => show(content.id)}>
+  //     <CardContent>
+  //       <Typography variant="h5" component="div">
+  //         {thisCourse.name}
+  //       </Typography>
+  //       <Typography sx={{ mb: 1.5 }} color="text.secondary">
+  //         {thisCourse.id}
+  //       </Typography>
+  //     </CardContent>
+  //   </CardActionArea>
+  //   <CardContent>
+  //     <Typography variant="body2">
+  //       {thisCourse.desc}
+  //     </Typography>
+  //   </CardContent>
+  //   <CardActions>
+  //     <Button size="small" onClick={() => addClass(content.id)}>Add to schedule</Button>
+  //   </CardActions>
+  // </Card>
   )
 }
 
