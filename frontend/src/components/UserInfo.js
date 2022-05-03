@@ -12,16 +12,14 @@ const UserInfo = ({ content }) => {
   console.log(content)
 
   return (
-    <Card sx={{ minWidth: 275 }}>
+    <Card sx={{ minWidth: 275, boxShadow: "0 5px 8px 0 rgba(0, 0, 0, 0.3)",
+    backgroundColor: "#edfbff",}}>
       <CardContent>
         <Typography variant="h5" component="div">
           {content.full_name}
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="body1">
           {(content.majors) + ", " + (content.class)}
-        </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          {"Bio: " + content.bio}
         </Typography>
 
         <Typography variant="text.primary">

@@ -30,7 +30,8 @@ const DetailedCard = ({ content, friends }) => {
 
   return (
     <div ref={ref}>
-      <Card sx={{ minWidth: 275 }}>
+      <Card sx={{ minWidth: 275, boxShadow: "0 5px 8px 0 rgba(0, 0, 0, 0.3)",
+      backgroundColor: "#edfbff",}}>
         <CardContent>
           <Typography variant="h5" component="div">
             {content.name}

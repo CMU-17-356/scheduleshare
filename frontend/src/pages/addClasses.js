@@ -39,8 +39,14 @@ function AddClassesPage() {
 
   useEffect(() => {
     if(expanded){
-
-      setFriends(["Ruitao Li", "Max Sobkov"])
+      
+      if (Math.random() < 0.5){
+        setFriends(["Ruitao Li", " Max Sobkov"])
+      }
+      else{
+        setFriends(["Michael Wright", " Hyrum Hilton"])
+      }
+      
 
       // getFriends(expandedContent.course_id).then((names) => {
       //   Promise.all(names).then(response => {
@@ -56,10 +62,12 @@ function AddClassesPage() {
   const courses = useClasses()
   const schedule = useSchedule()
   return (
-    <div className='addClassesPage'>
+    <div className='addClassesPage' style={{
+      backgroundColor: '#e0f8ff',
+    }} >
       <Header />
       <h2>Class Search</h2>
-
+      
       <Grid container spacing={4}>
         <Grid item xs={6}>
           <div className="search">

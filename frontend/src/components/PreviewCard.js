@@ -7,7 +7,7 @@ import CardActionArea from '@mui/material/CardActionArea';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import axios from 'axios';
-import UserInfo from './UserInfo';
+import { borders } from '@mui/system';
 
 
 const PreviewCard = ({ content, isCourse, show }) => {
@@ -35,6 +35,7 @@ const PreviewCard = ({ content, isCourse, show }) => {
         }        
     }).then(res => {
       console.log(content.full_name, "added")
+      alert(`${content.full_name} is your friend!`)
     }).catch(e => {
       alert("Error Adding Friend")
     })
@@ -43,7 +44,8 @@ const PreviewCard = ({ content, isCourse, show }) => {
   
   if (isCourse) {
     return (
-      <Card sx={{ minWidth: 275 }}>
+      <Card sx={{ minWidth: 275, boxShadow: "0 5px 8px 0 rgba(0, 0, 0, 0.3)",
+      backgroundColor: "#edfbff",}}>
         <CardActionArea onClick={() => show(content)}>
           <CardContent>
             <Typography variant="h5" component="div">
@@ -69,7 +71,8 @@ const PreviewCard = ({ content, isCourse, show }) => {
   }
   else {
     return (
-      <Card sx={{ minWidth: 275 }}>
+      <Card sx={{ minWidth: 275, boxShadow: "0 5px 8px 0 rgba(0, 0, 0, 0.3)",
+      backgroundColor: "#edfbff",}}>
         <CardActionArea onClick={() => show(content)}>
           <CardContent>
             <Typography variant="h5" component="div">
