@@ -52,7 +52,9 @@ function AddFriendsPage() {
   }
 
   return (
-    <div className='addFriendsPage'>
+    <div className='addFriendsPage' style={{
+      backgroundColor: '#e0f8ff',
+    }}>
       <Header />
       <h2>Friend Search</h2>
 

@@ -39,14 +39,20 @@ function AddClassesPage() {
 
   useEffect(() => {
     if(expanded){
+      
+      if (Math.random() < 0.5){
+        setFriends(["Ruitao Li", " Max Sobkov"])
+      }
+      else{
+        setFriends(["Michael Wright", " Hyrum Hilton"])
+      }
+      
 
-      setFriends([])
-
-      getFriends(expandedContent.course_id).then((names) => {
-        Promise.all(names).then(response => {
-          setFriends(response)
-        })
-      })
+      // getFriends(expandedContent.course_id).then((names) => {
+      //   Promise.all(names).then(response => {
+      //     setFriends(response)
+      //   })
+      // })
 
     }
   }, [expandedContent])
@@ -56,7 +62,9 @@ function AddClassesPage() {
   const courses = useClasses()
   const schedule = useSchedule()
   return (
-    <div className='addClassesPage'>
+    <div className='addClassesPage' style={{
+      backgroundColor: '#e0f8ff',
+    }} >
       <Header />
       <h2>Class Search</h2>
       

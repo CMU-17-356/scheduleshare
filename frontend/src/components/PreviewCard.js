@@ -7,11 +7,10 @@ import CardActionArea from '@mui/material/CardActionArea';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import axios from 'axios';
-import UserInfo from './UserInfo';
+import { borders } from '@mui/system';
 
 
 const PreviewCard = ({ content, isCourse, show }) => {
-
 
   const addClass = (courseName) => {
 
@@ -19,7 +18,6 @@ const PreviewCard = ({ content, isCourse, show }) => {
       method: "PUT",
       url: `http://localhost:3000/schedule/626f21bdf3743ba6b3ebf4d4/course/${content.course_id}`
     }).then(res => {
-      console.log(content.course_id)
       alert(`${courseName} added to schedule!`)
     }).catch(e => {
       console.log(e)
@@ -37,6 +35,7 @@ const PreviewCard = ({ content, isCourse, show }) => {
         }        
     }).then(res => {
       console.log(content.full_name, "added")
+      alert(`${content.full_name} is your friend!`)
     }).catch(e => {
       alert("Error Adding Friend")
     })
@@ -45,7 +44,8 @@ const PreviewCard = ({ content, isCourse, show }) => {
   
   if (isCourse) {
     return (
-      <Card sx={{ minWidth: 275 }}>
+      <Card sx={{ minWidth: 275, boxShadow: "0 5px 8px 0 rgba(0, 0, 0, 0.3)",
+      backgroundColor: "#edfbff",}}>
         <CardActionArea onClick={() => show(content)}>
           <CardContent>
             <Typography variant="h5" component="div">
@@ -71,20 +71,21 @@ const PreviewCard = ({ content, isCourse, show }) => {
   }
   else {
     return (
-      <Card sx={{ minWidth: 275 }}>
+      <Card sx={{ minWidth: 275, boxShadow: "0 5px 8px 0 rgba(0, 0, 0, 0.3)",
+      backgroundColor: "#edfbff",}}>
         <CardActionArea onClick={() => show(content)}>
           <CardContent>
             <Typography variant="h5" component="div">
               {content.full_name}
             </Typography>
             <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              {content.major + ", " + content.class}
+              {content.majors + ", " + content.class}
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardContent>
-          <Typography variant="body2">
-            {content.school}
+          <Typography variant="text.primary">
+            {content.bio}
           </Typography>
         </CardContent>
         <CardActions>
