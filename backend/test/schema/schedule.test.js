@@ -66,7 +66,10 @@ describe('Schedules can exist with valid parameters', function() {
   });
 
   it('Should create a schedule with required params (w/ courses)', (done) => {
-    const schedule = new Schedule({user1: user1._id, courses: ['15-122']});
+    const schedule = new Schedule({
+      user1: user1._id,
+      courses: ['15-122', '15-213'],
+    });
     assert(schedule.validate());
     done();
   });

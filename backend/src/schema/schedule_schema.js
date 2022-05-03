@@ -8,17 +8,17 @@ const scheduleSchema = new mongoose.Schema({
   },
   courses: {
     type: [String],
-    // validate: {
-    //     validator(arr) {
-    //         if(arr.length == 0) return true;
-    //         arr.forEach(string => {
-    //             if(/^\d{2}-\d{3}$/.test(string) == false) {
-    //                 throw new Error("array conatains an invalid course!")
-    //             }
-    //         })
-    //         return true;
-    //     }
-    // }
+    validate: {
+      validator(arr) {
+        if (arr.length == 0) return true;
+        arr.forEach((string) => {
+          if (/^\d{2}-\d{3}$/.test(string) == false) {
+            throw new Error('array conatains an invalid course!');
+          }
+        });
+        return true;
+      },
+    },
   },
 });
 

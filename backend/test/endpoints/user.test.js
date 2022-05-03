@@ -24,7 +24,6 @@ describe('Users (unparameterized)', function() {
         };
     const postRequest = chai.request(app).post('/user').send(data);
     postRequest.end((err, res) => {
-      console.log(err);
       assert(res.statusCode == 200);
       done();
     });
@@ -32,18 +31,18 @@ describe('Users (unparameterized)', function() {
 });
 
 describe('Users (parameterized)', function() {
+  let user_id = '';
   before(function(done) {
     data = {
       'username': 'a',
       'password': 'alsoa',
       'full_name': 'a a',
     };
-    // let user_id = '';
+
     const postRequest = chai.request(app).post('/user').send(data);
     postRequest.end((err, res) => {
-      console.log(err);
       assert(res.statusCode == 200);
-      // user_id = res.body;
+      user_id = res.body;
       done();
     });
   });
