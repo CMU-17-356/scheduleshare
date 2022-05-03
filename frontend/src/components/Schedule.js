@@ -7,12 +7,13 @@ function Schedule({ scheduleList }) {
   const show = (id) => { }
 
   return (
-    <div>{
+    <div><h2>My Schedule</h2>{
       scheduleList &&
       scheduleList.map((id) => {
         
         return (<div key = {id}>
-          <Card sx={{ minWidth: 275 }}>
+          <Card sx={{ minWidth: 275, boxShadow: "0 5px 8px 0 rgba(0, 0, 0, 0.3)",
+      backgroundColor: "#edfbff",}}>
           <Typography variant="h5" component="div" align="center">
             {id}
           </Typography>
