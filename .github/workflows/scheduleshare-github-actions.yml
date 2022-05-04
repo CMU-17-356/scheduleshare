@@ -1,10 +1,13 @@
 name: ScheduleShare CI
 on: [push]
 env:
-  MONGO_CREDENTIALS: ${{ MONGO_CREDENTIALS }}
+  MONGO_CREDENTIALS: ${{ secrets.MONGO_CREDENTIALS }}
 jobs:
   ScheduleShare-Test-and-Lint:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./backend
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
@@ -17,12 +20,11 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - name: "Backend: Install modules"
-        working-directory: ./backend
         run: yarn
       - name: "Backend: Run linter"
-        working-directory: ./backend
         run: yarn lint
       - name: "Backend: Run tests"
-        working-directory: ./backend
-        run: yarn test
+        run: 
+          echo "MONGO_CREDENTIALS:${{env.MONGO_CREDENTIALS}} > secret.env"
+          yarn test
       - run: echo "🍏 This job's status is ${{ job.status }}."
