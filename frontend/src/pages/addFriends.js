@@ -5,6 +5,8 @@ import ScrollableList from "../components/ScrollableList"
 import useUsers from "../hooks/useUsers";
 import UserInfo from "../components/UserInfo"
 import Grid from '@mui/material/Grid';
+import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify'
 
 function AddFriendsPage() {
   //id should be this user's id
@@ -41,14 +43,29 @@ function AddFriendsPage() {
   // }]
 
   const show = (content) => {
-    if(content.username === expandedContent.username){
+    if (content.username === expandedContent.username) {
       setExpanded(false)
       setExpandedContent({})
     }
-    else{
+    else {
       setExpanded(true)
       setExpandedContent(content)
     }
+  }
+
+  const addFriend = (content) => {
+    axios({
+      method: "POST",
+      url: "http://localhost:3000/friend/",
+      body: {
+        friend_1: content.id,
+        friend_2: content.id
+      }
+    }).then(res => {
+      toast.success(`${content.full_name} is your friend!`);
+    }).catch(e => {
+      toast.error(`Sorry, there was a problem`);
+    })
   }
 
   return (
@@ -68,10 +85,21 @@ function AddFriendsPage() {
               label="Search"
             />
           </div>
-          <ScrollableList myContents = {users} isCourse = {false} show = {show}/>
+          <ScrollableList myContents={users} isCourse={false} show={show} addContent={addFriend} />
         </Grid>
         <Grid item xs={6}>
-          {expanded && <UserInfo content = {expandedContent}/> }
+          <ToastContainer
+            position="top-right"
+            autoClose={4999}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+          {expanded && <UserInfo content={expandedContent} />}
         </Grid>
       </Grid>
     </div>

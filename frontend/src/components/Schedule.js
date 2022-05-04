@@ -8,7 +8,7 @@ function Schedule({ scheduleList }) {
 
   return (
 
-    <div><h2>My Schedule</h2>{
+    <div><h2>My Schedule </h2> <p>(refresh to see updated schedule)</p>{
       scheduleList &&
       scheduleList.map((id) => {
         
