@@ -1,5 +1,7 @@
 name: ScheduleShare CI
 on: [push]
+env:
+  MONGO_CREDENTIALS: ${{ MONGO_CREDENTIALS }}
 jobs:
   ScheduleShare-Test-and-Lint:
     runs-on: ubuntu-latest
