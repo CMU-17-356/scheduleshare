@@ -17,9 +17,9 @@ jobs:
       - name: "Backend: Install modules"
         working-directory: ./backend
         run: yarn
-      # - name: "Backend: Run linter"
-      #   working-directory: ./backend
-      #   run: yarn lint
+      - name: "Backend: Run linter"
+        working-directory: ./backend
+        run: yarn lint
       - name: "Backend: Run tests"
         working-directory: ./backend
         run: yarn test

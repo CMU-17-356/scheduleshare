@@ -10,7 +10,5 @@ parserOptions:
   ecmaVersion: latest
 plugins: []
 rules: 
-  indent: 
-    - error
-    - 4
   "require-jsdoc" : 0
+  "camelcase" : 0
