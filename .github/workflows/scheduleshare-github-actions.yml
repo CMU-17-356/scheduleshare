@@ -17,13 +17,13 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - name: "Backend: Install modules"
-        working-directory: ./dronuts-backend
+        working-directory: ./backend
         run: yarn
       - name: "Backend: Run linter"
-        working-directory: ./dronuts-backend
+        working-directory: ./backend
         run: yarn lint
       - name: "Backend: Run tests"
-        working-directory: ./dronuts-backend
+        working-directory: ./backend
         run: 
           echo "MONGO_CREDENTIALS:${{env.MONGO_CREDENTIALS}} > secret.env"
           yarn test
